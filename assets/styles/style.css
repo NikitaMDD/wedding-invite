@@ -52,7 +52,7 @@ span {
 .container {
     display: flex;
     justify-content: center;
-    background: url("assets/img/family-photo.png") no-repeat center;
+    background: url("../img/family-photo.png") no-repeat center;
     max-width: 565px;
     margin: 140px auto 189px;
     padding: 0 0;
@@ -138,7 +138,7 @@ span {
 }
 
 .information__background-image {
-    background: url("assets/img/vector.png") no-repeat center;
+    background: url("../img/vector.png") no-repeat center;
     width: 612px;
     height: 444px;
     position: absolute;
@@ -201,7 +201,7 @@ span {
     max-width: 565px;
     margin: 0 auto;
     padding: 0 20px;
-    background: url("assets/img/frame.png") no-repeat center;
+    background: url("../img/frame.png") no-repeat center;
     max-height: 1106px;
     height: 1106px;
     position: relative;
@@ -928,14 +928,14 @@ img {
 
 @font-face {
     font-family: 'Flores del Sol';
-    src: url('assets/fonts/Flores del Sol/Flores del Sol.otf') format('opentype');
+    src: url('../fonts/Flores del Sol/Flores del Sol.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Atziluth-Script';
-    src: url('assets/fonts/Atziluth-Script/Atziluth-Script.ttf') format('truetype');
+    src: url('../fonts/Atziluth-Script/Atziluth-Script.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
