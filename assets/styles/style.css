@@ -851,10 +851,11 @@ span {
 
     .footer .flowers-block--right {
         right: -150px;
+        top: -520px;
     }
 
     .footer .flowers-block--bottom {
-        bottom: -570px;
+        bottom: -520px;
     }
     .dress-code .group-img-women.animate-from-left,
     .dress-code .group-img-men.animate-from-right {
@@ -978,6 +979,365 @@ img {
 body {
     overflow: hidden;
     overflow-x: hidden;
+}
+
+.envelope-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #232F24;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.envelope-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.envelope-container {
+    text-align: center;
+    position: relative;
+}
+
+.invitation-title {
+    font-family: "Atziluth-Script", serif;
+    font-size: 72px;
+    color: #fff;
+    margin-bottom: 60px;
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: all 0.8s ease-in-out;
+}
+
+.invitation-title.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.click-hint {
+    font-family: "Merriweather", serif;
+    font-size: 18px;
+    color: #ECE3D7;
+    margin-top: 40px;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out 0.3s;
+}
+
+.click-hint.animate {
+    opacity: 0.7;
+}
+
+.envelope {
+    position: relative;
+    width: 400px;
+    height: 280px;
+    margin: 0 auto;
+    cursor: pointer;
+    z-index: 2;
+    background-image:
+            url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"),
+            linear-gradient(135deg, #f9f4eb 0%, #f0e6d6 50%, #e8dcc8 100%);
+    background-blend-mode: multiply;
+    border-radius: 4px;
+    box-shadow:
+            0 20px 60px rgba(0,0,0,0.4),
+            0 10px 30px rgba(0,0,0,0.2),
+            inset 0 1px 0 rgba(255,255,255,0.8),
+            inset 0 -1px 0 rgba(0,0,0,0.1);
+}
+
+body.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+    position: fixed;
+    width: 100%;
+}
+
+.envelope-body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background:
+            repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(180, 160, 140, 0.03) 2px,
+                    rgba(180, 160, 140, 0.03) 3px
+            ),
+            linear-gradient(135deg, #f5ede0 0%, #ebe2d4 50%, #e3d5c5 100%);
+    border-radius: 4px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    box-shadow:
+            inset 0 2px 10px rgba(0,0,0,0.05),
+            inset 0 -2px 10px rgba(0,0,0,0.03);
+}
+
+.envelope-body::before,
+.envelope-body::after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+}
+
+.envelope-body::before {
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 50%;
+    background: linear-gradient(
+            to bottom,
+            transparent,
+            rgba(139, 115, 85, 0.15) 20%,
+            rgba(139, 115, 85, 0.25) 50%,
+            rgba(139, 115, 85, 0.15) 80%,
+            transparent
+    );
+}
+
+.envelope-body::after {
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+            to right,
+            transparent,
+            rgba(139, 115, 85, 0.1) 10%,
+            rgba(139, 115, 85, 0.2) 50%,
+            rgba(139, 115, 85, 0.1) 90%,
+            transparent
+    );
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background:
+            url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"),
+            linear-gradient(180deg, #ebe2d4 0%, #e3d5c5 50%, #d9c8b5 100%);
+    background-blend-mode: multiply;
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    transform-origin: top;
+    transition: transform 0.6s ease-in-out;
+    z-index: 3;
+    box-shadow:
+            inset 0 -2px 8px rgba(0,0,0,0.1),
+            inset 0 2px 8px rgba(255,255,255,0.3);
+}
+
+.envelope-flap::before,
+.envelope-flap::after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+}
+
+.envelope-flap::before {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: linear-gradient(
+            to bottom,
+            transparent,
+            rgba(100, 80, 60, 0.3)
+    );
+}
+
+.envelope-flap::after {
+    left: 10%;
+    right: 10%;
+    top: 10%;
+    height: 30%;
+    background: linear-gradient(
+            to bottom,
+            rgba(255,255,255,0.4),
+            transparent
+    );
+    border-radius: 50%;
+    filter: blur(8px);
+    opacity: 0.6;
+}
+
+.envelope.open .envelope-flap {
+    transform: rotateX(180deg);
+    z-index: 1;
+    box-shadow:
+            inset 0 2px 8px rgba(0,0,0,0.1),
+            inset 0 -2px 8px rgba(255,255,255,0.3);
+}
+
+.envelope::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    border: 1px solid rgba(200, 180, 160, 0.5);
+    border-radius: 3px;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.envelope::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+            ellipse at center,
+            transparent 40%,
+            rgba(0,0,0,0.08) 100%
+    );
+    pointer-events: none;
+    border-radius: 4px;
+}
+
+.wax-seal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90px;
+    height: 90px;
+    background: url('../img/mark.png') no-repeat center center;
+    background-size: contain;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4))
+    drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    z-index: 4;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    cursor: pointer;
+}
+
+.wax-seal:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.5))
+    drop-shadow(0 3px 6px rgba(0,0,0,0.4));
+}
+
+.wax-seal-svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    overflow: visible;
+}
+
+.wax-seal-text {
+    opacity: 0.95;
+    font-family: "Merriweather", serif;
+    font-size: 12px;
+    text-align: center;
+    line-height: 1.2;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    pointer-events: none;
+    fill: #fff;
+}
+
+/* Анимация письма */
+.letter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 85%;
+    background: #fff;
+    opacity: 0;
+    z-index: 2;
+    transition: all 0.8s ease-in-out 0.3s;
+}
+
+.envelope.open .letter {
+    opacity: 1;
+    transform: translate(-50%, -150%);
+}
+
+.main-content {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease-in-out 0.5s;
+}
+
+.main-content.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.envelope-container .flowers-block--bottom {
+    bottom: -500px;
+}
+
+.envelope-container .flowers-block--left {
+    left: -200px;
+}
+
+.envelope-container .flowers-block--right {
+    right: -200px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .invitation-title {
+        font-size: 90px;
+        margin-bottom: 40px;
+    }
+
+    .envelope {
+        width: 300px;
+        height: 210px;
+    }
+
+    .wax-seal {
+        width: 70px;
+        height: 70px;
+    }
+
+    .wax-seal span {
+        font-size: 10px;
+    }
+
+    .click-hint {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .invitation-title {
+        font-size: 60px;
+    }
+
+    .envelope {
+        width: 260px;
+        height: 180px;
+    }
+
+    .wax-seal {
+        width: 60px;
+        height: 60px;
+    }
 }
 
 @font-face {

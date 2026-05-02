@@ -1,4 +1,186 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    const mainContent = document.querySelector('.main-content') || document.body;
+    mainContent.classList.add('main-content');
+
+    const envelopeScreen = document.getElementById('envelopeScreen');
+    const envelope = document.getElementById('envelope');
+    const waxSeal = document.getElementById('waxSeal');
+    const invitationTitle = document.querySelector('.invitation-title');
+    const clickHint = document.querySelector('.click-hint');
+
+    document.body.classList.add('no-scroll');
+
+    let envelopeShakeTween = null;
+
+    function startEnvelopeShake() {
+        if (envelopeShakeTween) return;
+
+        envelopeShakeTween = gsap.to(envelope, {
+            x: () => gsap.utils.random(-3, 3),
+            y: () => gsap.utils.random(-3, 3),
+            rotation: () => gsap.utils.random(-1, 1),
+            duration: () => gsap.utils.random(0.1, 0.2),
+            ease: "power1.inOut",
+            repeat: -1,
+            yoyo: true
+        });
+    }
+
+    function stopEnvelopeShake() {
+        if (envelopeShakeTween) {
+            envelopeShakeTween.kill();
+            envelopeShakeTween = null;
+        }
+
+        gsap.to(envelope, {
+            x: 0,
+            y: 0,
+            rotation: 0,
+            duration: 0.5,
+            ease: "elastic.out(1, 0.5)"
+        });
+    }
+
+    function hoverEnvelope() {
+        gsap.to(envelope, {
+            scale: 1.05,
+            duration: 0.6,
+            ease: "power2.out"
+        });
+    }
+
+    function unhoverEnvelope() {
+        gsap.to(envelope, {
+            scale: 1,
+            duration: 0.4,
+            ease: "power2.out"
+        });
+    }
+
+    startEnvelopeShake();
+
+    if (envelope) {
+        envelope.addEventListener('mouseenter', hoverEnvelope);
+        envelope.addEventListener('mouseleave', unhoverEnvelope);
+        envelope.addEventListener('click', openEnvelope);
+
+        envelope.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            hoverEnvelope();
+            setTimeout(() => openEnvelope(), 200);
+        }, { passive: false });
+    }
+
+    if (waxSeal) {
+        waxSeal.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openEnvelope();
+        });
+    }
+
+    setTimeout(() => {
+        if (invitationTitle) invitationTitle.classList.add('animate');
+        if (clickHint) clickHint.classList.add('animate');
+    }, 300);
+
+    function openEnvelope() {
+        if (envelope.classList.contains('open')) return;
+
+        stopEnvelopeShake();
+
+        gsap.to(envelope, {
+            scale: 1,
+            x: 0,
+            y: 0,
+            rotation: 0,
+            duration: 0.5,
+            ease: "power2.out",
+            onComplete: () => {
+                envelope.classList.add('open');
+
+                setTimeout(() => {
+                    if (envelopeScreen) {
+                        envelopeScreen.classList.add('hidden');
+                    }
+
+                    setTimeout(() => {
+                        document.body.classList.remove('no-scroll');
+
+                        mainContent.classList.add('visible');
+                        mainContent.classList.remove('main-content');
+
+                        animateFirstBlock();
+
+                        if (typeof ScrollTrigger !== 'undefined') {
+                            ScrollTrigger.refresh();
+                        }
+                    }, 800);
+                }, 1500);
+            }
+        });
+    }
+
+    const waxSealSvg = document.querySelector('.wax-seal-svg');
+
+    if (waxSeal && waxSealSvg) {
+        let currentRotation = 0;
+        let isRotating = false;
+        let rotationTween = null;
+
+        function rotateSeal() {
+            if (isRotating) return;
+
+            isRotating = true;
+
+            // Сохраняем текущий угол и добавляем 360 градусов
+            const startRotation = currentRotation;
+            const endRotation = currentRotation + 360;
+
+            rotationTween = gsap.to(waxSealSvg, {
+                rotation: endRotation,
+                duration: 8,
+                ease: "linear",
+                onUpdate: function() {
+                    // Обновляем текущий угол во время анимации
+                    currentRotation = this.targets()[0]._gsap.rotation;
+                },
+                onComplete: () => {
+                    isRotating = false;
+                    rotationTween = null;
+                }
+            });
+        }
+
+        function stopRotation() {
+            if (rotationTween) {
+                // Получаем текущий угол в момент остановки
+                currentRotation = gsap.getProperty(waxSealSvg, "rotation");
+
+                // Останавливаем анимацию
+                rotationTween.kill();
+                rotationTween = null;
+                isRotating = false;
+
+                // Фиксируем текущую позицию
+                gsap.set(waxSealSvg, { rotation: currentRotation });
+            }
+        }
+
+        waxSeal.addEventListener('mouseenter', rotateSeal);
+        waxSeal.addEventListener('mouseleave', stopRotation);
+
+        waxSeal.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            rotateSeal();
+        }, { passive: false });
+
+        waxSeal.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            stopRotation();
+        }, { passive: false });
+    }
+
     const weddingDate = new Date('2026-07-18T00:00:00+03:00');
     const daysEl = document.getElementById('days');
     const monthsEl = document.getElementById('months');
@@ -126,6 +308,21 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
     };
 
+    function animateFirstBlock() {
+        gsap.fromTo('.container__title .animate-from-left',
+            { x: -80, opacity: 0 },
+            { x: 0, opacity: 1, duration: 1.2, ease: 'power3.out', delay: 0.3 }
+        );
+        gsap.fromTo('.container__title .animate-from-right',
+            { x: 80, opacity: 0 },
+            { x: 0, opacity: 1, duration: 1.2, ease: 'power3.out', delay: 0.5 }
+        );
+        gsap.fromTo('.container__title .animate-fade',
+            { scale: 0.9, opacity: 0 },
+            { scale: 1, opacity: 1, duration: 1, delay: 0.4 }
+        );
+    }
+
     function updateTimer() {
         const now = new Date();
         if (now >= weddingDate) {
@@ -187,18 +384,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    gsap.fromTo('.container__title .animate-from-left',
-        { x: -80, opacity: 0 },
-        { x: 0, opacity: 1, duration: 1.2, ease: 'power3.out', delay: 0.3 }
-    );
-    gsap.fromTo('.container__title .animate-from-right',
-        { x: 80, opacity: 0 },
-        { x: 0, opacity: 1, duration: 1.2, ease: 'power3.out', delay: 0.5 }
-    );
-    gsap.fromTo('.container__title .animate-fade',
-        { scale: 0.9, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 1, delay: 0.4 }
-    );
+    // gsap.fromTo('.container__title .animate-from-left',
+    //     { x: -80, opacity: 0 },
+    //     { x: 0, opacity: 1, duration: 1.2, ease: 'power3.out', delay: 0.3 }
+    // );
+    // gsap.fromTo('.container__title .animate-from-right',
+    //     { x: 80, opacity: 0 },
+    //     { x: 0, opacity: 1, duration: 1.2, ease: 'power3.out', delay: 0.5 }
+    // );
+    // gsap.fromTo('.container__title .animate-fade',
+    //     { scale: 0.9, opacity: 0 },
+    //     { scale: 1, opacity: 1, duration: 1, delay: 0.4 }
+    // );
 
     ScrollTrigger.batch('.for-guests .animate-from-left, .for-guests .animate-from-right, .for-guests .animate-from-bottom', {
         onEnter: batch => gsap.to(batch, {

@@ -14,168 +14,201 @@
     <title>Приглашение на свадьбу</title>
 </head>
 <body>
-    <div class="container">
-        <div class="separator zero-top">
-            <img src="assets/img/separator.png" alt="">
-        </div>
-        <div>
-            <div class="container__title atziluth-script">
-                <p class="indentation-left animate-from-left">Лиза</p>
-                <p class="indentation-right--little animate-fade">и</p>
-                <p class="indentation-right animate-from-right">Никита</p>
+    <div class="envelope-screen" id="envelopeScreen">
+        <div class="envelope-container">
+            <div class="invitation-title animate-invitation-title">
+                <p>Приглашение<br>на свадьбу</p>
             </div>
-            <div class="helper">
-                <p>Осталось:</p>
-            </div>
-            <div class="container__timer" id="fullTimer">
-                <span class="days" id="days">18</span>
-                <span class="dote-separator"></span>
-                <span class="months" id="months">07</span>
-                <span class="dote-separator"></span>
-                <span class="years" id="years">2026</span>
-            </div>
-        </div>
-        <div class="separator zero-bottom">
-            <img src="assets/img/separator.png" alt="">
-        </div>
-    </div>
-    <div class="for-guests">
-        <div class="information">
-            <p class="text-title animate-from-bottom" style="display: inline-block" id="guestsName"></p><br>
-            <span class="text_middle-size animate-from-left" style="margin-top: 23px">
-                В нашей жизни состоится торжественное <br>
-                и знаменательное событие - день нашей <br>
-                свадьбы. <br>
-            </span>
-            <span class="text_middle-size animate-from-right">
-                Мы хотим соединить наши судьбы и наши <br>
-                сердца, и нам будет очень приятно разделить <br>
-                с вами этот счастливый для нас день
-            </span>
-            <div class="information__date animate-from-bottom">
-                <span>18.07.2026</span>
-            </div>
-        </div>
-        <div class="information__background-image">
-        </div>
-    </div>
-    <div class="location">
-        <p class="text-title animate-from-top">Локация</p>
-        <span class="text_middle-size animate-from-bottom">
-        c. Стрельцы, ул. Луговая 11B
-    </span>
-        <button class="main-btn animate-fade" id="mapLink">Карта</button>
-    </div>
-    <div class="timings">
-        <div class="separator zero-top zero-top--more">
-            <img src="assets/img/separator.png" alt="">
-        </div>
-        <div class="flowers-block flowers-block--top flowers-block--right">
-            <img src="assets/img/flowers.png" alt="">
-        </div>
-        <div class="timings__containers">
-            <p class="text-title text-title__timings">Тайминг</p>
-            <div class="timings__container">
-                <div class="line"></div>
 
-                <!-- Пункт 1 -->
-                <div class="timings__item">
-                    <span class="timings__time animate-time">14:00</span>
-                    <span class="circle animate-circle"></span>
-                    <div class="timings__event">
-                        <span class="timings__event-title animate-event-title">Сбор гостей</span>
-                        <span class="timings__event-desc animate-event-desc">Просим взять с собой улыбки <br> и хорошее настроение</span>
-                    </div>
-                </div>
-
-                <!-- Пункт 2 -->
-                <div class="timings__item">
-                    <span class="timings__time animate-time">15:00</span>
-                    <span class="circle animate-circle"></span>
-                    <div class="timings__event">
-                        <span class="timings__event-title animate-event-title">Церемония</span>
-                        <span class="timings__event-desc animate-event-desc">Приготовьте платочки для <br> самого трогательного <br> момента свадьбы</span>
-                    </div>
-                </div>
-
-                <!-- Пункт 3 -->
-                <div class="timings__item">
-                    <span class="timings__time animate-time">16:00</span>
-                    <span class="circle animate-circle"></span>
-                    <div class="timings__event">
-                        <span class="timings__event-title animate-event-title">Начало банкета</span>
-                        <span class="timings__event-desc animate-event-desc">Время вкусной еды, танцев <br> и развлечений</span>
-                    </div>
-                </div>
-
-                <!-- Пункт 4 -->
-                <div class="timings__item">
-                    <span class="timings__time animate-time">22:00</span>
-                    <span class="circle animate-circle" style="height: 12.5px;"></span>
-                    <div class="timings__event">
-                        <span class="timings__event-title animate-event-title">Завершение</span>
-                        <span class="timings__event-desc animate-event-desc">К сожалению даже такой <br> прекрасный день <br> заканчивается</span>
+            <div class="envelope" id="envelope">
+                <div class="envelope-flap"></div>
+                <div class="envelope-body">
+                    <div class="wax-seal" id="waxSeal">
+                        <svg class="wax-seal-svg" width="120" height="120" viewBox="0 0 120 120">
+                            <defs>
+                                <path id="circlePath" d="M 60, 60 m -45, 0 a 45,45 0 1,1 90,0 a 45,45 0 1,1 -90,0" />
+                            </defs>
+                            <text class="wax-seal-text">
+                                <textPath href="#circlePath" startOffset="10%">
+                                    НАЖМИ СЮДА
+                                </textPath>
+                            </text>
+                        </svg>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="flowers-block flowers-block--foreground flowers-block--left flowers-block--bottom">
-            <img src="assets/img/flowers-left.png" alt="">
-        </div>
-        <div class="separator zero-bottom zero-bottom--more">
-            <img src="assets/img/separator.png" alt="">
-        </div>
-    </div>
-    <div class="dress-code">
-        <img class="group-img-women animate-from-left" src="assets/img/group-women.png" alt="">
-        <div class="dress-code__container">
-            <div class="dress-code__circle dress-code__circle--white-women"></div>
-            <div class="dress-code__circle dress-code__circle--light-blue-women"></div>
-            <div class="dress-code__circle dress-code__circle--brown-women"></div>
-            <div class="dress-code__circle dress-code__circle--green-women"></div>
-            <div class="dress-code__circle dress-code__circle--pink-women"></div>
-        </div>
-        <p class="text-title animate-from-bottom">Дресс-код</p>
-        <img class="group-img-men animate-from-right" src="assets/img/group-men.png" alt="">
-        <div class="dress-code__container">
-            <div class="dress-code__circle dress-code__circle--dark-white-men"></div>
-            <div class="dress-code__circle dress-code__circle--blue-men"></div>
-            <div class="dress-code__circle dress-code__circle--grey-men"></div>
-            <div class="dress-code__circle dress-code__circle--green-men"></div>
-            <div class="dress-code__circle dress-code__circle--dark-blue-men"></div>
-        </div>
-    </div>
-    <div class="wishes">
-        <div class="separator zero-top">
-            <img src="assets/img/separator.png" alt="">
-        </div>
-        <p class="text-title animate-from-top">Пожелания</p>
-        <div class="wishes__container">
-            <div class="mark-img animate-fade">
-                <img src="assets/img/mark.png" alt="">
+            <div class="flowers-block flowers-block--bottom flowers-block--right">
+                <img src="assets/img/flowers.png" alt="">
             </div>
-            <span class="animate-from-bottom">
-            Самым ценным подарком для нас будет ваше присутствие в этот день. Просим, по возможности, не дарить цветы. Вместо них невеста с радостью примет книги. Чтобы <br>
-            не получилось повторений, пожалуйста, <br>
-            заранее забронируйте выбранную книгу в <br>
-            нашем приложении.
+            <div class="flowers-block flowers-block--foreground flowers-block--left flowers-block--bottom">
+                <img src="assets/img/flowers-left.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="container">
+            <div class="separator zero-top">
+                <img src="assets/img/separator.png" alt="">
+            </div>
+            <div>
+                <div class="container__title atziluth-script">
+                    <p class="indentation-left animate-from-left">Лиза</p>
+                    <p class="indentation-right--little animate-fade">и</p>
+                    <p class="indentation-right animate-from-right">Никита</p>
+                </div>
+                <div class="helper">
+                    <p>Осталось:</p>
+                </div>
+                <div class="container__timer" id="fullTimer">
+                    <span class="days" id="days">18</span>
+                    <span class="dote-separator"></span>
+                    <span class="months" id="months">07</span>
+                    <span class="dote-separator"></span>
+                    <span class="years" id="years">2026</span>
+                </div>
+            </div>
+            <div class="separator zero-bottom">
+                <img src="assets/img/separator.png" alt="">
+            </div>
+        </div>
+        <div class="for-guests">
+            <div class="information">
+                <p class="text-title animate-from-bottom" style="display: inline-block" id="guestsName"></p><br>
+                <span class="text_middle-size animate-from-left" style="margin-top: 23px">
+                    В нашей жизни состоится торжественное <br>
+                    и знаменательное событие - день нашей <br>
+                    свадьбы. <br>
+                </span>
+                <span class="text_middle-size animate-from-right">
+                    Мы хотим соединить наши судьбы и наши <br>
+                    сердца, и нам будет очень приятно разделить <br>
+                    с вами этот счастливый для нас день
+                </span>
+                <div class="information__date animate-from-bottom">
+                    <span>18.07.2026</span>
+                </div>
+            </div>
+            <div class="information__background-image">
+            </div>
+        </div>
+        <div class="location">
+            <p class="text-title animate-from-top">Локация</p>
+            <span class="text_middle-size animate-from-bottom">
+            c. Стрельцы, ул. Луговая 11B
         </span>
-            <button class="wishlist-btn animate-from-bottom" id="wishlistBtn">Приложение</button>
+            <button class="main-btn animate-fade" id="mapLink">Карта</button>
         </div>
-        <p class="text-footer animate-fade">С любовью <br> Лиза и Никита</p>
-        <div class="separator zero-bottom">
-            <img src="assets/img/separator.png" alt="">
+        <div class="timings">
+            <div class="separator zero-top zero-top--more">
+                <img src="assets/img/separator.png" alt="">
+            </div>
+            <div class="flowers-block flowers-block--top flowers-block--right">
+                <img src="assets/img/flowers.png" alt="">
+            </div>
+            <div class="timings__containers">
+                <p class="text-title text-title__timings">Тайминг</p>
+                <div class="timings__container">
+                    <div class="line"></div>
+
+                    <!-- Пункт 1 -->
+                    <div class="timings__item">
+                        <span class="timings__time animate-time">14:00</span>
+                        <span class="circle animate-circle"></span>
+                        <div class="timings__event">
+                            <span class="timings__event-title animate-event-title">Сбор гостей</span>
+                            <span class="timings__event-desc animate-event-desc">Просим взять с собой улыбки <br> и хорошее настроение</span>
+                        </div>
+                    </div>
+
+                    <!-- Пункт 2 -->
+                    <div class="timings__item">
+                        <span class="timings__time animate-time">15:00</span>
+                        <span class="circle animate-circle"></span>
+                        <div class="timings__event">
+                            <span class="timings__event-title animate-event-title">Церемония</span>
+                            <span class="timings__event-desc animate-event-desc">Приготовьте платочки для <br> самого трогательного <br> момента свадьбы</span>
+                        </div>
+                    </div>
+
+                    <!-- Пункт 3 -->
+                    <div class="timings__item">
+                        <span class="timings__time animate-time">16:00</span>
+                        <span class="circle animate-circle"></span>
+                        <div class="timings__event">
+                            <span class="timings__event-title animate-event-title">Начало банкета</span>
+                            <span class="timings__event-desc animate-event-desc">Время вкусной еды, танцев <br> и развлечений</span>
+                        </div>
+                    </div>
+
+                    <!-- Пункт 4 -->
+                    <div class="timings__item">
+                        <span class="timings__time animate-time">22:00</span>
+                        <span class="circle animate-circle" style="height: 12.5px;"></span>
+                        <div class="timings__event">
+                            <span class="timings__event-title animate-event-title">Завершение</span>
+                            <span class="timings__event-desc animate-event-desc">К сожалению даже такой <br> прекрасный день <br> заканчивается</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flowers-block flowers-block--foreground flowers-block--left flowers-block--bottom">
+                <img src="assets/img/flowers-left.png" alt="">
+            </div>
+            <div class="separator zero-bottom zero-bottom--more">
+                <img src="assets/img/separator.png" alt="">
+            </div>
         </div>
-    </div>
-    <div class="footer">
-        <div class="family-photo-block">
-            <img src="assets/img/Group 11.png" alt="">
+        <div class="dress-code">
+            <img class="group-img-women animate-from-left" src="assets/img/group-women.png" alt="">
+            <div class="dress-code__container">
+                <div class="dress-code__circle dress-code__circle--white-women"></div>
+                <div class="dress-code__circle dress-code__circle--light-blue-women"></div>
+                <div class="dress-code__circle dress-code__circle--brown-women"></div>
+                <div class="dress-code__circle dress-code__circle--green-women"></div>
+                <div class="dress-code__circle dress-code__circle--pink-women"></div>
+            </div>
+            <p class="text-title animate-from-bottom">Дресс-код</p>
+            <img class="group-img-men animate-from-right" src="assets/img/group-men.png" alt="">
+            <div class="dress-code__container">
+                <div class="dress-code__circle dress-code__circle--dark-white-men"></div>
+                <div class="dress-code__circle dress-code__circle--blue-men"></div>
+                <div class="dress-code__circle dress-code__circle--grey-men"></div>
+                <div class="dress-code__circle dress-code__circle--green-men"></div>
+                <div class="dress-code__circle dress-code__circle--dark-blue-men"></div>
+            </div>
         </div>
-        <div class="flowers-block flowers-block--top flowers-block--right">
-            <img src="assets/img/flowers.png" alt="">
+        <div class="wishes">
+            <div class="separator zero-top">
+                <img src="assets/img/separator.png" alt="">
+            </div>
+            <p class="text-title animate-from-top">Пожелания</p>
+            <div class="wishes__container">
+                <div class="mark-img animate-fade">
+                    <img src="assets/img/mark.png" alt="">
+                </div>
+                <span class="animate-from-bottom">
+                Самым ценным подарком для нас будет ваше присутствие в этот день. Просим, по возможности, не дарить цветы. Вместо них невеста с радостью примет книги. Чтобы <br>
+                не получилось повторений, пожалуйста, <br>
+                заранее забронируйте выбранную книгу в <br>
+                нашем приложении.
+            </span>
+                <button class="wishlist-btn animate-from-bottom" id="wishlistBtn">Приложение</button>
+            </div>
+            <p class="text-footer animate-fade">С любовью <br> Лиза и Никита</p>
+            <div class="separator zero-bottom">
+                <img src="assets/img/separator.png" alt="">
+            </div>
         </div>
-        <div class="flowers-block flowers-block--foreground flowers-block--left flowers-block--bottom">
-            <img src="assets/img/flowers-left.png" alt="">
+        <div class="footer">
+            <div class="family-photo-block">
+                <img src="assets/img/Group 11.png" alt="">
+            </div>
+            <div class="flowers-block flowers-block--top flowers-block--right">
+                <img src="assets/img/flowers.png" alt="">
+            </div>
+            <div class="flowers-block flowers-block--foreground flowers-block--left flowers-block--bottom">
+                <img src="assets/img/flowers-left.png" alt="">
+            </div>
         </div>
     </div>
 <!--    <div class="flowers-block flowers-flex flowers-block&#45;&#45;bottom flowers-block&#45;&#45;right">-->
