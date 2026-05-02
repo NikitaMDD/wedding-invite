@@ -572,6 +572,10 @@ span {
 
 @media (max-width: 768px) {
 
+    .indentation-left {
+        margin: 0;
+    }
+
     .separator {
         width: 100%;
     }
@@ -617,11 +621,19 @@ span {
     }
 
     .container__timer {
-        font-size: 32px;
-        justify-content: center;
-        gap: 8px;
-        flex-wrap: wrap;
+        margin-bottom: 30px;
     }
+
+    .container__timer span {
+        height: auto;
+    }
+
+    /*.container__timer {*/
+    /*    font-size: 32px;*/
+    /*    justify-content: center;*/
+    /*    gap: 8px;*/
+    /*    flex-wrap: wrap;*/
+    /*}*/
 
     .dote-separator {
         height: 40px !important;
@@ -643,6 +655,10 @@ span {
         max-width: 100%;
         width: 100%;
         box-sizing: border-box;
+    }
+
+    .for-guests {
+        height: 666px;
     }
 
     .container {
@@ -782,10 +798,7 @@ span {
 
     .information__background-image {
         width: 100%;
-        max-width: 500px;
-        height: auto;
-        background-size: contain;
-        bottom: -20px;
+        bottom: 30px;
         left: 50%;
         transform: translateX(-50%);
     }
