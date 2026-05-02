@@ -395,7 +395,7 @@ span {
 .footer {
     max-width: 565px;
     /*width: 565px;*/
-    margin: 0 auto;
+    margin: 0 auto 120px;
     position: relative;
     height: 130px;
 }
@@ -819,7 +819,7 @@ span {
     /*}*/
 
     .footer {
-        margin: 200px auto 40px;
+        margin: 200px auto 225px;
         height: auto;
         min-height: 100px;
     }
