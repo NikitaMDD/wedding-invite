@@ -14,8 +14,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const params = new URLSearchParams(window.location.search);
     const guestKey = params.get("guest") || "default";
 
+    /**
+     *
+     * Вероника и Станислав
+     * Мария и Дмитрий
+     * Ирина Витальевна и Николай Васильевич
+     * Нина Янисовна и Сергей Алексеевич
+     * Григорий Сергеевич
+     * Наталья и Роман
+     * Наталья и Денис
+     * Юлия и Сергей
+     * Елена и Александр
+     * Ирина и Сергей
+     *
+     **/
+
     const guests = {
         parents: { title: "Дорогие Мама и Папа!",},
+        mariaAndDmitry: { title: "Дорогие Мария и Дмитрий!",},
+        irinaAndNikolay: { title: "Дорогие Ирина Витальевна и Николай Васильевич!",},
+        ninaAndSergey: { title: "Дорогие Нина Янисовна и Сергей Алексеевич!",},
+        grigoriy: { title: "Дорогой Григорий Сергеевич!",},
+        nataliaAndRoman: { title: "Дорогие Наталья и Роман!",},
+        nataliaAndDenis: { title: "Дорогие Наталья и Денис!",},
+        juliaAndSergey: { title: "Дорогие Юлия и Сергей!",},
+        elenaAndAlexandr: { title: "Дорогие Мама и Папа!",},
+        irinaAndSergey: { title: "Дорогие Ирина и Сергей!",},
         default: { title: "Дорогие гости!", }
     };
 

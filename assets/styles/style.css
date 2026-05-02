@@ -708,8 +708,8 @@ span {
 
     .line {
         transform: translateX(-1px);
-        left: 66px;
-        height: 269px;
+        left: 68.5px;
+        height: 284px;
     }
 
     .timings__item {
@@ -765,7 +765,7 @@ span {
 
     .group-img-women,
     .group-img-men {
-        max-width: 250px;
+        max-width: 350px;
         height: auto;
         display: block;
         margin: 0 auto 15px;
@@ -864,6 +864,21 @@ span {
 }
 
 @media (max-width: 480px) {
+
+    .group-img-women,
+    .group-img-men {
+        max-width: 250px;
+        height: auto;
+        display: block;
+        margin: 0 auto 15px;
+    }
+
+    .line {
+        transform: translateX(-1px);
+        left: 66px;
+        height: 269px;
+    }
+
     .container__title {
         font-size: 60px;
     }
