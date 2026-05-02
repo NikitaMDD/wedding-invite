@@ -564,9 +564,18 @@ span {
     }
 }
 
+.mark-img img {
+    margin: 0 auto;
+}
+
 /* адаптивность */
 
 @media (max-width: 768px) {
+
+    .separator {
+        width: 100%;
+    }
+
     .container,
     .information,
     .timings__containers,
@@ -633,8 +642,6 @@ span {
     .footer {
         max-width: 100%;
         width: 100%;
-        margin-left: 15px;
-        margin-right: 15px;
         box-sizing: border-box;
     }
 
@@ -674,7 +681,7 @@ span {
     }
 
     .wishes .zero-bottom {
-        bottom: -40px;
+        bottom: -60px;
     }
 
     .main-btn,
@@ -756,13 +763,12 @@ span {
     }
 
     .dress-code {
-        margin: 60px auto 0;
         padding: 0 10px;
     }
 
     .wishes {
         margin: 60px auto 40px;
-        padding: 25px 15px 60px;
+        padding: 25px 0 60px;
     }
 
     .mark-img {
@@ -770,7 +776,7 @@ span {
     }
 
     .mark-img img {
-        max-width: 60px;
+        max-width: 115px;
         height: auto;
     }
 
@@ -784,26 +790,26 @@ span {
         transform: translateX(-50%);
     }
 
-    .flowers-block {
-        position: relative;
-        top: auto !important;
-        bottom: auto !important;
-        left: auto !important;
-        right: auto !important;
-        width: 100%;
-        text-align: center;
-        margin: 10px 0;
-    }
+    /*.flowers-block {*/
+    /*    position: relative;*/
+    /*    top: auto !important;*/
+    /*    bottom: auto !important;*/
+    /*    left: auto !important;*/
+    /*    right: auto !important;*/
+    /*    width: 100%;*/
+    /*    text-align: center;*/
+    /*    margin: 10px 0;*/
+    /*}*/
 
-    .flowers-block img {
-        max-width: 100%;
-        height: auto;
-        display: inline-block;
-    }
+    /*.flowers-block img {*/
+    /*    max-width: 100%;*/
+    /*    height: auto;*/
+    /*    display: inline-block;*/
+    /*}*/
 
-    .flowers-block--foreground {
-        z-index: 0;
-    }
+    /*.flowers-block--foreground {*/
+    /*    z-index: 0;*/
+    /*}*/
 
     .footer {
         margin: 0 auto 40px;
@@ -823,11 +829,6 @@ span {
         max-width: 100%;
         height: auto;
         display: inline-block;
-    }
-
-    .animate-from-left,
-    .animate-from-right {
-        transform: translateY(20px) !important;
     }
 }
 
