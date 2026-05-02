@@ -395,17 +395,21 @@ span {
 .footer {
     max-width: 565px;
     /*width: 565px;*/
-    margin: 0 auto 100px;
+    margin: 0 auto;
     position: relative;
-    height: 154px;
+    height: 130px;
 }
 
 .family-photo-block {
     position: absolute;
-    z-index: 1;
-    bottom: 0;
-    right: 25px;
+    z-index: 10;
+    bottom: -80px;
     margin: 0 auto;
+
+}
+
+.family-photo-block img {
+    width: 462px;
 }
 
 .flowers-flex {
@@ -607,10 +611,6 @@ span {
         line-height: 1.4;
     }
 
-    .timings__event-desc {
-        font-size: 14px;
-    }
-
     .information__date span {
         font-size: 24px;
     }
@@ -658,7 +658,7 @@ span {
     }
 
     .for-guests {
-        height: 666px;
+        height: 710px;
     }
 
     .container {
@@ -684,10 +684,6 @@ span {
         bottom: -60px;
     }
 
-    .zero-top--more {
-        top: -50px;
-    }
-
     .zero-bottom--more {
         bottom: -55px;
     }
@@ -711,19 +707,14 @@ span {
     }
 
     .line {
-        left: 50%;
         transform: translateX(-1px);
-        height: 100%;
-        top: 0;
+        left: 66px;
+        height: 269px;
     }
 
     .timings__item {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 8px;
         position: relative;
-        padding: 15px 0;
+        gap: 50px;
     }
 
     .timings__time {
@@ -734,26 +725,28 @@ span {
 
     .circle {
         position: absolute;
-        left: 50%;
+        left: 22%;
         transform: translateX(-50%);
-        top: 28px;
+        top: 4px;
         z-index: 2;
     }
 
-    .timings__event {
-        align-items: center;
-    }
-
     .text-title__timings {
-        margin: 80px 0 30px;
+        margin: 100px 0 0;
         font-size: 48px;
+        line-height: 50px;
     }
 
-    .timings__containers,
-    .timings__container {
-        padding: 20px 15px 40px;
+    .timings__containers {
+        padding: 225px 0 300px;
         background-position: center;
-        background-size: contain;
+        background-size: 100%;
+    }
+
+    .timings__container {
+        padding: 0 0 0;
+        background-position: center;
+        background-size: 100%;
     }
 
     .dress-code__container {
@@ -772,7 +765,7 @@ span {
 
     .group-img-women,
     .group-img-men {
-        max-width: 120px;
+        max-width: 250px;
         height: auto;
         display: block;
         margin: 0 auto 15px;
@@ -780,11 +773,12 @@ span {
 
     .dress-code {
         padding: 0 10px;
+        margin: 165px 0 100px;
     }
 
     .wishes {
         margin: 60px auto 40px;
-        padding: 25px 0 60px;
+        padding: 25px 0 150px;
     }
 
     .mark-img {
@@ -825,33 +819,57 @@ span {
     /*}*/
 
     .footer {
-        margin: 0 auto 40px;
+        margin: 200px auto 40px;
         height: auto;
         min-height: 100px;
     }
 
     .family-photo-block {
-        position: relative;
-        right: auto;
-        bottom: auto;
-        width: 100%;
-        text-align: center;
+        bottom: -35px;
     }
 
     .family-photo-block img {
-        max-width: 100%;
+        max-width: 350px;
         height: auto;
         display: inline-block;
     }
+
+    .information .text-title {
+        margin-bottom: 35px;
+    }
+
+    .timings .flowers-block--bottom {
+        bottom: -185px;
+        width: 390px;
+    }
+
+    .timings .flowers-block--top {
+        top: -520px;
+    }
+
+    .footer .flowers-block--right {
+        right: -150px;
+    }
+
+    .footer .flowers-block--bottom {
+        bottom: -570px;
+    }
+    .dress-code .group-img-women.animate-from-left,
+    .dress-code .group-img-men.animate-from-right {
+        opacity: 1 !important;
+        transform: none !important;
+        will-change: auto;
+    }
+
 }
 
 @media (max-width: 480px) {
     .container__title {
-        font-size: 56px;
+        font-size: 60px;
     }
 
     .text-title {
-        font-size: 36px;
+        font-size: 60px;
     }
 
     .text_middle-size,
@@ -873,7 +891,7 @@ span {
     }
 
     .text-footer {
-        font-size: 32px;
+        font-size: 60px;
     }
 
     .main-btn,
@@ -938,6 +956,11 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
+}
+
+body {
+    overflow: hidden;
+    overflow-x: hidden;
 }
 
 @font-face {
