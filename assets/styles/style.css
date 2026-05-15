@@ -842,6 +842,7 @@ span {
     }
 
     .information .text-title {
+        margin-top: 15px;
         margin-bottom: 35px;
     }
 
@@ -874,7 +875,7 @@ span {
 @media (max-width: 480px) {
 
     .information__background-image {
-        bottom: -35px;
+        bottom: -50px;
     }
 
     .group-img-women,
@@ -943,17 +944,17 @@ span {
 
 @media (max-width: 383px) {
     .information__background-image {
-        bottom: -100px;
+        bottom: -120px;
     }
 
     .location {
-        margin-top: 170px;
+        margin-top: 180px;
     }
 }
 
 @media (max-width: 355px) {
     .information__background-image {
-        bottom: -140px;
+        bottom: -160px;
     }
 }
 
