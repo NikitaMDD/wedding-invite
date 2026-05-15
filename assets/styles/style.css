@@ -289,9 +289,6 @@ span {
     right: 0;
 }
 
-.flowers-block img {
-}
-
 .flowers-block--bottom {
     bottom: -265px;
 }
@@ -304,7 +301,7 @@ span {
     display: flex;
     justify-content: space-between;
     width: 358px;
-    margin: 92px auto 65px;
+    margin: 92px auto 25px;
 }
 
 .dress-code__circle {
@@ -431,6 +428,14 @@ span {
     margin: 15px 0 0 0;
     text-align: center;
     font-size: 65px;
+}
+
+.example-help {
+    font-family: "Merriweather", serif !important;
+}
+
+.example-help--first {
+    margin: 0 0 35px;
 }
 
 .animate-from-left,
@@ -794,7 +799,7 @@ span {
 
     .information__background-image {
         width: 100%;
-        bottom: 30px;
+        bottom: 0;
         left: 50%;
         transform: translateX(-50%);
     }
@@ -868,6 +873,10 @@ span {
 
 @media (max-width: 480px) {
 
+    .information__background-image {
+        bottom: -35px;
+    }
+
     .group-img-women,
     .group-img-men {
         max-width: 250px;
@@ -925,6 +934,26 @@ span {
 
     .information__date span {
         font-size: 20px;
+    }
+
+    .mobile-hide {
+        opacity: 0 !important;
+    }
+}
+
+@media (max-width: 383px) {
+    .information__background-image {
+        bottom: -100px;
+    }
+
+    .location {
+        margin-top: 170px;
+    }
+}
+
+@media (max-width: 355px) {
+    .information__background-image {
+        bottom: -140px;
     }
 }
 
