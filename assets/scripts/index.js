@@ -213,6 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const guests = {
         parents: { title: "Дорогие Мама и Папа!",},
+        veronicaAndStanislav: { title: "Дорогие Вероника и Станислав!", },
         mariaAndDmitry: { title: "Дорогие Мария и Дмитрий!",},
         irinaAndNikolay: { title: "Дорогие Ирина Витальевна и Николай Васильевич!",},
         ninaAndSergey: { title: "Дорогие Нина Янисовна и Сергей Алексеевич!",},
